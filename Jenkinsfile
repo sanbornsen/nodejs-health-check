@@ -1,10 +1,6 @@
+@Library('github.com/chmouel/osio-pipeline-helpers@master')
 
-node("launchpad-nodejs") {
-  checkout scm
-  stage("Build") {
-    sh "npm install"
-  }
-  stage("Deploy") {
-    sh "npm run openshift"
-  }
+main {
+  target_user = "${TARGET_USER}"
+  application_name = "${APPLICATION_NAME}"
 }
