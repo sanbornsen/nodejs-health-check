@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
 
-ode("launchpad-nodejs") {
+node("launchpad-nodejs") {
   checkout scm
   stage("Build") {
     sh "npm install"
