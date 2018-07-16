@@ -4,6 +4,8 @@
 def setupScript = null
 
 osio {
+  name = 'git'
+
   // stage("Build") {
   //   sh "npm install"
   // }
