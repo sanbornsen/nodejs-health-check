@@ -4,6 +4,7 @@
 def setupScript = null
 
 
+
 node("launchpad-nodejs") {
   checkout scm
   // stage("Build") {
