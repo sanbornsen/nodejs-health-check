@@ -3,7 +3,7 @@
 @Library('github.com/chmouel/osio-pipeline-helpers@master')
 def setupScript = null
 
-main {
+osio {
   checkout scm
   // stage("Build") {
   //   sh "npm install"
