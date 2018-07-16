@@ -3,7 +3,7 @@
 @Library('github.com/chmouel/osio-pipeline-helpers@master')
 def setupScript = null
 
-node("launchpad-nodejs") {
+main {
   checkout scm
   // stage("Build") {
   //   sh "npm install"
