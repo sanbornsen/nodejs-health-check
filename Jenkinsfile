@@ -4,7 +4,6 @@
 def setupScript = null
 
 osio {
-  checkout scm
   // stage("Build") {
   //   sh "npm install"
   // }
