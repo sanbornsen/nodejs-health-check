@@ -6,4 +6,7 @@ def arg = null
 osio {
   label = 'nodejs'
   stages = ['run', 'prod']
+
+  template_parameters = ["BRANCH": "testing"]
+
 }
