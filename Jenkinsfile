@@ -1,9 +1,16 @@
 #!/usr/bin/groovy
+pipeline {
+    agent any
 
-@Library('github.com/chmouel/osio-pipeline-helpers@master')
-def arg = null
+    parameters {
+        booleanParam(defaultValue: true, description: '', name: 'userFlag')
+    }
 
-osio {
-  label = 'nodejs'
-  stages = ['stage', 'prod']
+    stages {
+        stage("foo") {
+            steps {
+                echo "flag: ${params.userFlag}"
+            }
+        }
+    }
 }
