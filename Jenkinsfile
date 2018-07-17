@@ -5,5 +5,6 @@ def arg = null
 
 osio {
   label = 'nodejs'
+
   stages = ['stage', 'prod']
 }
