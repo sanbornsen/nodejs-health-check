@@ -1,8 +1,5 @@
 const nodeshift = require('nodeshift');
 
-
-
-
 const options = {
   strictSSL: false
 };
