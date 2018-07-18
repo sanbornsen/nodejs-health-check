@@ -1,6 +1,6 @@
 @Library('github.com/chmouel/osio-pipeline@master')
-def arg = null
+def STAGES = ['run', 'stage']
 
 osio {
-  stages = ['run', 'stage']
+  stages = STAGES
 }
