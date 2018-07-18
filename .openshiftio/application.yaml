@@ -128,7 +128,7 @@ objects:
                 periodSeconds: 3
                 successThreshold: 1
                 timeoutSeconds: 1
-              image: nodejs-health-check
+              image: nodejs-health-check${SUFFIX_NAME}
               name: nodejs-health-check${SUFFIX_NAME}
               securityContext:
                 privileged: false
@@ -153,7 +153,7 @@ objects:
           imageChangeParams:
             automatic: true
             containerNames:
-              - nodejs-health-check
+              - nodejs-health-check${SUFFIX_NAME}
             from:
               kind: ImageStreamTag
               name: 'nodejs-health-check${SUFFIX_NAME}:latest'
