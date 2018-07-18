@@ -3,5 +3,5 @@
 def arg = null
 
 osio {
-  stages = ['stage', 'run']
+  stages = ['run']
 }
