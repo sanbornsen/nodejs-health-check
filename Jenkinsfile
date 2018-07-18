@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
-@Library('github.com/chmouel/osio-pipeline-helpers@master')
+@Library('github.com/chmouel/osio-pipeline@master')
 def arg = null
 
 osio {
-  stages = ['run']
+  stages = ['run', 'osd-run', 'osd-stage']
 }
