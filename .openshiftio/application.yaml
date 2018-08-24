@@ -29,11 +29,16 @@ parameters:
     required: true
     from: '[a-zA-Z0-9]{40}'
     generate: expression
+  - name: RELEASE_VERSION
+    description: The release version number of application
+    displayName: Release version
 objects:
   - apiVersion: v1
     kind: ImageStream
     metadata:
       name: nodejs-health-check${SUFFIX_NAME}
+      labels:
+        version: ${RELEASE_VERSION}
     spec: {}
   - apiVersion: v1
     kind: ImageStream
@@ -53,7 +58,7 @@ objects:
       output:
         to:
           kind: ImageStreamTag
-          name: 'nodejs-health-check${SUFFIX_NAME}:latest'
+          name: 'nodejs-health-check${SUFFIX_NAME}:${RELEASE_VERSION}'
       postCommit: {}
       resources: {}
       source:
@@ -94,7 +99,7 @@ objects:
         provider: nodeshift
         expose: 'true'
         project: nodejs-health-check
-        version: 2.0.0
+        version: ${RELEASE_VERSION}
   - apiVersion: v1
     kind: DeploymentConfig
     metadata:
@@ -103,7 +108,7 @@ objects:
         app: nodejs-health-check
         provider: nodeshift
         project: nodejs-health-check
-        version: 2.0.0
+        version: ${RELEASE_VERSION}
     spec:
       template:
         spec:
@@ -141,7 +146,7 @@ objects:
             app: nodejs-health-check
             project: nodejs-health-check
             provider: nodeshift
-            version: 2.0.0
+            version: ${RELEASE_VERSION}
       replicas: 1
       selector:
         app: nodejs-health-check
@@ -163,7 +168,7 @@ objects:
       labels:
         project: nodejs-health-check
         provider: nodeshift
-        version: 2.0.0
+        version: ${RELEASE_VERSION}
       name: nodejs-health-check${SUFFIX_NAME}
     spec:
       port:
